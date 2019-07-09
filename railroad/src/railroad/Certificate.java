@@ -15,7 +15,12 @@ public class Certificate {
 	}
 	
 	// Methods used by Corp-Shares
-	
+	public boolean isPresident() {return false;}
+	public void setPresident(boolean president) {}
+	public int getPercentage() {return 0;}
+	public void setPercentage(int percentage) {}
+	public Corporation getCorp() {return null;}
+	public void setCorp(Corporation corp) {}
 
 	// Methods used by Private
 	public void specialFkt() {}
@@ -24,5 +29,7 @@ public class Certificate {
 	public void setParvalue(int parvalue) {}
 	public int getRevenue() {return 0;}
 	public void setRevenue(int revenue) {}
-	
+	public String getInitials() {return null;}
+	public void setInitials(String initials) {}
+
 }

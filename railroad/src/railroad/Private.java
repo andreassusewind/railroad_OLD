@@ -1,21 +1,27 @@
 package railroad;
 
 public class Private extends Certificate{
+	private String initials;
 	private int parvalue;
 	private int revenue;
 	
-	public Private(String name, int parvalue, int revenue) {
+	public Private(String name, String initials, int parvalue, int revenue) {
 		super(name);
+		this.initials = initials;
 		this.parvalue = parvalue;
 		this.revenue = revenue;
 	}
 	
 	@Override
-	public void specialFkt() {}
+	public String getInitials() {
+		return initials;
+	}
 
 	@Override
-	public void directFkt() {}
-	
+	public void setInitials(String initials) {
+		this.initials = initials;
+	}
+
 	@Override
 	public int getParvalue() {
 		return parvalue;

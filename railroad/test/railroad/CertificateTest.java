@@ -21,7 +21,7 @@ class CertificateTest {
 		}
 		
 		Method[] m = t.getDeclaredMethods();
-		assertEquals(m.length, 9, "Class Certificate has false number of Methods");
+		assertEquals(m.length, 17, "Class Certificate has false number of Methods");
 		
 		Class<?>[] i = t.getInterfaces();
 		assertEquals(0, i.length, "Class Certificate has false number of implemented Interfaces");

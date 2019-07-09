@@ -1,9 +1,9 @@
 package railroad;
 
-public class Private1830SV extends Private1830{
+public class Private1830SV extends Private{
 
-	public Private1830SV(String name, int parvalue, int revenue) {
-		super(name, parvalue, revenue);
+	public Private1830SV() {
+		super("Schuylkill Valley", "SV", 20, 5);
 	}
 
 	@Override

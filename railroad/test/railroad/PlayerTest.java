@@ -47,10 +47,10 @@ class PlayerTest {
 			fail("Player.getCerts not found");
 		}
 		
-		p.addCert(new Private1830SV("A",20, 5));
-		p.addCert(new Private1830SV("B",40,15));
+		p.addCert(new Private1830SV());
+		p.addCert(new Private1830SV());
 		
-		assertEquals("A", p.getCerts().get(0).getName(), "Player.getCerts takes false Certificate Element");
+		assertEquals("SV", p.getCerts().get(0).getInitials(), "Player.getCerts takes false Certificate Element");
 	}
 	
 	@Test

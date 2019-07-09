@@ -4,11 +4,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.lang.reflect.Method;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 class PrivateTest {
+
+	Private p;
+	
+	@BeforeEach
+	public void setUp() {
+		p = new Private("Test", "T", 20, 5);
+	}
 
 	@Test
 	void testPrivate() {
@@ -30,27 +38,32 @@ class PrivateTest {
 	}
 	
 	@Test
-	void testSpecialFkt() {
+	void testGetInitials() {
 		try {
-			Private.class.getDeclaredMethod("specialFkt", new Class[0]);
+			Private.class.getDeclaredMethod("getInitials", new Class[0]);
 		} catch (SecurityException e) {
 			e.printStackTrace();
 			fail();
 		} catch (NoSuchMethodException e) {
-			fail("Private.specialFkt not found");
+			fail("Private.getInitials not found");
 		}
+		
+		assertEquals("T", p.getInitials(), "Private.getInitials is false.");
 	}
-	
+
 	@Test
-	void testDirectFkt() {
+	void testSetInitials() {
 		try {
-			Private.class.getDeclaredMethod("directFkt", new Class[0]);
+			Private.class.getDeclaredMethod("setInitials", new Class[]{String.class});
 		} catch (SecurityException e) {
 			e.printStackTrace();
 			fail();
 		} catch (NoSuchMethodException e) {
-			fail("Private.directFkt not found");
+			fail("Private.setInitials not found");
 		}
+		
+		p.setInitials("U");
+		assertEquals("U", p.getInitials(), "Private.setInitials is false.");
 	}
 
 	@Test
@@ -63,6 +76,8 @@ class PrivateTest {
 		} catch (NoSuchMethodException e) {
 			fail("Private.getParvalue not found");
 		}
+		
+		assertEquals(20, p.getParvalue(), "Private.getParvalue is false.");
 	}
 
 	@Test
@@ -75,6 +90,9 @@ class PrivateTest {
 		} catch (NoSuchMethodException e) {
 			fail("Private.setParvalue not found");
 		}
+		
+		p.setParvalue(10);
+		assertEquals(10, p.getParvalue(), "Private.setParvalue is false.");
 	}
 
 	@Test
@@ -87,6 +105,8 @@ class PrivateTest {
 		} catch (NoSuchMethodException e) {
 			fail("Private.getRevenue not found");
 		}
+		
+		assertEquals(5, p.getRevenue(), "Private.getRevenue is false.");
 	}
 
 	@Test
@@ -99,5 +119,8 @@ class PrivateTest {
 		} catch (NoSuchMethodException e) {
 			fail("Private.setRevenue not found");
 		}
+		
+		p.setRevenue(10);
+		assertEquals(10, p.getRevenue(), "Private.getRevenue is false.");
 	}
 }
